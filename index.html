@@ -1,0 +1,60 @@
+<html>
+		<head>
+				<title> Name App by Bhoomi Singh</title>
+				<style>
+						* {font-size:40px; font-family:Calibri;}
+						body {background-color: linen;}
+				</style>
+		</head>
+		<body>
+				<center>
+						<h1>Sort My Name App by Bhoomi Singh</h1>
+						<form onSubmit="show()">
+						<input type="text" id="name" placeholder="Enter your name" />
+						<br/><br/>
+						<input type="submit">
+				</form>
+						<h2 id="msg"/>
+				<script>
+						function show()
+						{
+							event.preventDefault();
+							let name = document.getElementById("name");
+							let msg = document.getElementById("msg");
+
+						if (name.value ==="")
+						{
+							alert("You did not enter name");
+							msg.innerHTML = "";
+							name.focus();
+							return;
+						}
+
+						if (name.value.trim() ==="")
+						{
+							alert("Name should not be blank spaces ");
+							msg.innerHTML = "";
+							name.value = "";
+							name.focus();
+							return;
+						}
+
+						if (!name.value.match(/^[A-Za-z ]+$/))
+						{
+							alert("Name should contain only alphabets ");
+							msg.innerHTML = "";
+							name.value = "";
+							name.focus();
+							return;
+						}
+
+
+						let n = name.value;
+						let r1 = n.split("");
+						r1.sort();
+						let nn = r1.join("");
+						msg.innerHTML = nn;
+						}
+				</script>
+		</body>
+</html>
